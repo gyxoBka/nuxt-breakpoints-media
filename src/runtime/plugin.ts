@@ -5,7 +5,7 @@ import options from '#breakpoints-options'
 export default defineNuxtPlugin((_nuxtApp) => {
   const { bp, mediaQuery } = createBreakpoints(options)
 
-  _nuxtApp.hook('app:mounted', () => {
+  _nuxtApp.hook('app:suspense:resolve', () => {
     const keys = Object.keys(mediaQuery) as Array<keyof typeof mediaQuery>
 
     keys.forEach((key) => {

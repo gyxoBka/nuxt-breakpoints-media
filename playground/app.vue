@@ -1,10 +1,5 @@
 <template>
-  <div :class="{ 'test-small': isSmallThanMd }">
-    isSmallThanMd: {{ isSmallThanMd }}
-  </div>
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
 </template>
-
-<script setup>
-const bp = useBreakpoints()
-const isSmallThanMd = computed(() => bp.value.sMd)
-</script>
