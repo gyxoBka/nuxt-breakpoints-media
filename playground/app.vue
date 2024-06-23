@@ -1,5 +1,5 @@
 <template>
-  <div :class="{'test' : isSmallThanMd}">
+  <div :class="{ 'test-small': isSmallThanMd }">
     isSmallThanMd: {{ isSmallThanMd }}
   </div>
 </template>
