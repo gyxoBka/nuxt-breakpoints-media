@@ -3,6 +3,8 @@ import type { Ref } from '@vue/reactivity'
 import type { IBreakpoints, IBreakpointsMedia, IModuleOptions } from '../types'
 
 export function createBreakpoints(options: IModuleOptions): { bp: Ref<IBreakpoints>, mediaQuery: IBreakpointsMedia } {
+  const fallback = options.fallback ?? {}
+
   const bp = ref<IBreakpoints>({
     sm: false,
     lSm: false,
@@ -17,6 +19,8 @@ export function createBreakpoints(options: IModuleOptions): { bp: Ref<IBreakpoin
     sLg: true,
 
     xl: false,
+
+    ...fallback,
   })
 
   const mediaQuery: IBreakpointsMedia = {

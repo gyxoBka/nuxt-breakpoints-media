@@ -21,6 +21,21 @@ export default defineNuxtConfig({
     md: 768,
     lg: 992,
     xl: 1200,
+    fallback: { // usefull to force pc first (ssr)
+      sm: false,
+      lSm: false,
+      sSm: true,
+
+      md: false,
+      lMd: false,
+      sMd: true,
+
+      lg: false,
+      lLg: false,
+      sLg: true,
+
+      xl: false,
+    },
   },
 })
 ```

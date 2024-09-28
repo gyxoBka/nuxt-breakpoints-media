@@ -35,4 +35,5 @@ export interface IModuleOptions {
   md: number
   lg: number
   xl: number
+  fallback?: Partial<IBreakpoints>
 }

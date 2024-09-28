@@ -6,15 +6,19 @@ export default defineNuxtPlugin((_nuxtApp) => {
   const { bp, mediaQuery } = createBreakpoints(options)
 
   _nuxtApp.hook('app:suspense:resolve', () => {
+    if (!window?.matchMedia) return
+
     const keys = Object.keys(mediaQuery) as Array<keyof typeof mediaQuery>
 
     keys.forEach((key) => {
       const mediaQueryList = window.matchMedia(mediaQuery[key])
 
-      bp.value[key] = mediaQueryList.matches
+      if (mediaQueryList) {
+        bp.value[key] = mediaQueryList.matches
 
-      mediaQueryList.onchange = (event) => {
-        bp.value[key] = event.matches
+        mediaQueryList.onchange = (event) => {
+          bp.value[key] = event.matches
+        }
       }
     })
   })
